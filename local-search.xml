@@ -56,5 +56,32 @@
   
   
   
+  <entry>
+    <title>Fluid x APlayer</title>
+    <link href="/2021/10/01/Fluid-x-APlayer/"/>
+    <url>/2021/10/01/Fluid-x-APlayer/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>此篇分享如何在Fluid主题下添加音乐插件。Fluid x APlayer。</p><h4 id="学习链接"><a href="#学习链接" class="headerlink" title="学习链接"></a>学习链接</h4><p>APlayer中文文档 <a href="https://aplayer.js.org/#/zh-Hans/">https://aplayer.js.org/#/zh-Hans/</a></p><p>hexo-tag-aplayer文档 <a href="https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md">https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md</a></p><h4 id="推荐步骤"><a href="#推荐步骤" class="headerlink" title="推荐步骤"></a>推荐步骤</h4><ol><li><p>在hexo博客的文件夹根目录打开git bash，输入如下命令安装插件:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs git">npm install --save hexo-tag-aplayer<br><br>//安装完，将~node_modules\aplayer\dist文件copy至主题的source目录下<br></code></pre></td></tr></table></figure></li><li><p>在Fluid主题目录中，source目录下新建js文件：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> ap = <span class="hljs-keyword">new</span> APlayer(&#123;<br>    <span class="hljs-attr">container</span>: <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&#x27;aplayer&#x27;</span>),<br><span class="hljs-attr">volume</span>: <span class="hljs-number">0.5</span>,<br>    <span class="hljs-attr">fixed</span>: <span class="hljs-literal">true</span>,<br><span class="hljs-attr">autoplay</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">//自动播放</span><br>    <span class="hljs-attr">audio</span>: [<br>&#123;<br>        <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Talking to the Moon&#x27;</span>,<br>        <span class="hljs-attr">artist</span>: <span class="hljs-string">&#x27;Bruno Mars&#x27;</span>,<br>        <span class="hljs-attr">url</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br>        <span class="hljs-attr">cover</span>: <span class="hljs-string">&#x27;&#x27;</span>,<br>    &#125;, <br>]<br>&#125;);<br><span class="hljs-comment">//具体参数学习请看APlayer官方文档（已在学习链接中）</span><br><span class="hljs-comment">//简述一下关键：url填音乐的真实外部链接。cover就是封面图片真实链接。</span><br></code></pre></td></tr></table></figure></li><li><p>得到指定音乐的url与cover参数。（只以网易云音乐为例</p><p>打开网易云音乐网页版，随便找到一首歌，播放。他的url形如： <a href="https://music.163.com/#/song?id=28952146">https://music.163.com/#/song?id=28952146</a> 。然后将前者的id值套用到后者链接中xxxxxx位置 <a href="http://music.163.com/song/media/outer/url?id=xxxxxxx.mp3">http://music.163.com/song/media/outer/url?id=xxxxxxx.mp3</a> 。通过后者访问到的，重新生成的url就是其真实链接，也就是我们要填的url。对于获取cover，直接在网页版的cover图片上右击检查，鼠标放在cover上即可获得。</p></li><li><p>主题配置</p><p>在fluid主题配置文件_config.yml文件中搜索：custom_html.在其单引号中加入如下代码：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;link rel=<span class="hljs-string">&quot;stylesheet&quot;</span> href=<span class="hljs-string">&quot;/dist/APlayer.min.css&quot;</span>&gt;<br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;aplayer&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/dist/APlayer.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;/js/你命名的.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></code></pre></td></tr></table></figure></li><li><p>hexo clean — hexo g — hexo d</p></li></ol><h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>fluid主题不支持pjax。自行DIY会出现诸多问题。音乐无法在跳转页面后继续播放。因此建议选择适合的音乐。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>blog美化</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>fluid           //多个标签可以这样添加</tag>
+      
+      <tag>aplayer</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
   
 </search>
