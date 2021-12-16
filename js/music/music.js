@@ -6,8 +6,8 @@ const ap = new APlayer({
 	{
         name: 'Talking to the Moon',
         artist: 'Bruno Mars',
-        url: 'http://m10.music.126.net/20211216115437/b8f2adfb62adb3dbef52d40ec36e3daf/ymusic/11da/fc2d/6fcb/605460bfa9b81b124885385180c6d6e5.mp3',
-        cover: 'https://p1.music.126.net/R22YAdk0TD4EvttrWsV-1Q==/8888451999281894.jpg?param=130y130',
+        url: 'http://m10.music.126.net/20211216144917/d8a49d27e27d504249ea03b7ccb6b62b/ymusic/3bac/8775/44f4/2bf1a676bef1b8470232df384a42a71f.mp3',
+        cover: 'https://p1.music.126.net/ZSNq_4FdLRKb0eEic_4Obw==/109951163691583679.jpg?param=130y130',
     }, 
 	]
 });
