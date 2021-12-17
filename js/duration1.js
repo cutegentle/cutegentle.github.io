@@ -1,8 +1,8 @@
-/* global Fluid, CONFIG 底部时间的js*/
+<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>/* global Fluid, CONFIG 底部时间的js*/
 
 !(function() {
   /** 计时起始时间，自行修改 **/
-  var start = new Date("2020/12/9 00:00:00");
+  var start = new Date("2020/6/9 00:00:00");
 
   function update() {
     var now = new Date();
