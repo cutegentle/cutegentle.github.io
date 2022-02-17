@@ -13,27 +13,23 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="此篇介绍Git操作之merge。">
+  <meta name="description" content="你真的知道什么是Git吗？">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <meta name="description" content="此篇介绍Git操作之merge。">
+  <meta name="description" content="你真的知道什么是Git吗？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git Merge">
-<meta property="og:url" content="http://example.com/2020/10/11/Git-merge/index.html">
+<meta property="og:title" content="What is Git ？">
+<meta property="og:url" content="http://example.com/2020/10/01/whatIsGit/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="此篇介绍Git操作之merge。">
+<meta property="og:description" content="你真的知道什么是Git吗？">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2020/10/11/Git-merge/gitmerge1.png">
-<meta property="og:image" content="http://example.com/2020/10/11/Git-merge/gitmerge2.png">
-<meta property="article:published_time" content="2020-10-11T07:13:01.000Z">
-<meta property="article:modified_time" content="2022-02-17T12:30:12.325Z">
+<meta property="article:published_time" content="2020-10-01T09:22:33.000Z">
+<meta property="article:modified_time" content="2022-02-17T12:56:21.881Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Git">
-<meta property="article:tag" content="merge">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://example.com/2020/10/11/Git-merge/gitmerge1.png">
   
-  <title>Git Merge - Hexo</title>
+  <title>What is Git ？ - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -191,7 +187,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Git Merge">
+            <span class="h2" id="subtitle" title="What is Git ？">
               
             </span>
 
@@ -201,8 +197,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-10-11 15:13" pubdate>
-        2020年10月11日 下午
+      <time datetime="2020-10-01 17:22" pubdate>
+        2020年10月1日 下午
       </time>
     </span>
   
@@ -212,7 +208,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.4k 字
+      1.5k 字
     </span>
   
 
@@ -221,7 +217,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4 分钟
+      5 分钟
     </span>
   
 
@@ -250,51 +246,30 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Git Merge</h1>
+            <h1 style="display: none">What is Git ？</h1>
             
             <div class="markdown-body">
-              <p>此篇介绍Git操作之merge。</p>
+              <p><strong>你真的知道什么是Git吗？</strong></p>
 <span id="more"></span>
 
-<h3 id="Git-merge-合并-commits"><a href="#Git-merge-合并-commits" class="headerlink" title="Git merge:合并 commits"></a>Git merge:合并 commits</h3><p>merge 的意思是「合并」，它做的事也是合并: 指定一个 commit ，把它合并到当前的 commit 来。具体来讲， merge 做的事是:从目标 commit 和当前 commit (即 HEAD 所 指向的 commit )分叉的位置起，把目标commit 的路径上的所有 commit 的内容一并应用到当前 commit ，然后自动生成一个新的commit。</p>
-<p>一般来说在master上操作： <code>git merge branch</code>  这样branch会合并到master上，实际操作是两者均延伸出一个新commit进行相交。</p>
-<p><strong>merge的使用场景</strong></p>
-<ol>
-<li><p>就是合并分支</p>
-</li>
-<li><p>pull的内部操作：pull的实际操作其实是把远端仓库的内容用fetch取下来之后，用merge来合并。</p>
-</li>
-</ol>
-<p><strong>特殊情况1：冲突</strong></p>
-<p>首先两个分支改了同一个文件不同地方，merge会自动合并。但是该了相同地方就会产生冲突。他会提示你那里冲突。现在我们就需要做两件事情：1. 解决冲突;  2. 手动commit一下</p>
-<p>对于前者来说：再打开冲突文件看一下。内容会改变。Git虽然无法处理冲突，但是他把两个分支冲突的内容放在一起，并用符号标记出他们的边界以及出处。</p>
-<img src="/2020/10/11/Git-merge/gitmerge1.png" srcset="/img/loading.gif" lazyload style="zoom:30%;">
 
-<p>我们如何操作呢？假设你要保留HEAD的修改，那么只要删除feature1的修改，再把辅助文字符号删除，保存退出就可以。<img src="/2020/10/11/Git-merge/gitmerge2.png" srcset="/img/loading.gif" lazyload style="zoom:40%;">         (当然也可以选择更方便的merge工具来解决冲突。</p>
-<p>对于后者来说：解决完冲突之后就要进行第二步，commit了。commit冲突文件。被冲突中断的merge在手动commit时候依旧会自动填写提交信息不用奇怪。我们先前的Git仓库都处于冲突待解决的中间状态，如果不解决冲突，也可以选择<code>merge --abort</code>来手动取消merge以达到merge前的状态。</p>
-<p><strong>特殊情况2：HEAD领先于目标commit</strong></p>
-<p>merge时，目标commit和HEAD处commit不存在分叉，而是单纯一条线上，且HEAD领先目标commit。此情况merge空操作。</p>
-<p><strong>特殊情况3：HEAD落后于目标commit (fast-forward</strong> </p>
-<p>Git会直接把HEAD以及他所指向的branch移动到目标commit。也就是前移罢了。看似此情况很少见，其实这种情况十分常见。因为这其实就是pull操作的一种经典：本地的master没有新提交，而远端仓库中有同事提交新内容到master。如果这时候在本地执行一次pull操作，就会由于HEAD落后于目标commit（也就是origin master）而造成fast-forward。而 <code>git pull</code> 的第二步操作 <code>merge</code> 的目标 <code>commit</code> ，是远端仓库的 <code>HEAD</code>，也就是 <code>origin/HEAD</code> ，所以 <code>git pull</code> 的第二步的完整内容是：<code>git merge origin/HEAD</code></p>
-<p><strong>小总结：</strong></p>
-<ol>
-<li><code>merge</code> 的含义：从两个 <code>commit</code>「分叉」的位置起，把目标 <code>commit</code> 的内容应用到当前 <code>commit</code>（<code>HEAD</code> 所指向的 <code>commit</code>），并生成一个新的 <code>commit</code>；</li>
-<li>merge的适用场景：<ol>
-<li>单独开发的 <code>branch</code> 用完了以后，合并回原先的 <code>branch</code>；</li>
-<li><code>git pull</code> 的内部自动操作。</li>
-</ol>
-</li>
-<li>merge的三种特殊情况：<ol>
-<li>冲突<ol>
-<li>原因：当前分支和目标分支修改了同一部分内容，Git 无法确定应该怎样合并；</li>
-<li>应对方法：解决冲突后手动 <code>commit</code>。</li>
-</ol>
-</li>
-<li><code>HEAD</code> 领先于目标 <code>commit</code>：Git 什么也不做，空操作；</li>
-<li><code>HEAD</code> 落后于目标 <code>commit</code>：fast-forward。</li>
-</ol>
-</li>
-</ol>
+
+<p style="text-align:center;color:#8EC0E4;font-size:1.5em;font-weight: bold;">
+Git is a Distributed Version Control System.
+</p>
+
+
+
+<h3 id="BUT-Why-Git-is-a-Distributed-Version-Control-System"><a href="#BUT-Why-Git-is-a-Distributed-Version-Control-System" class="headerlink" title="BUT :  Why Git is a Distributed Version Control System ?"></a>BUT :  Why Git is a Distributed Version Control System ?</h3><p>所谓的Git是一个分布式版本控制系统（DVCS）这句话究竟如何理解？首先先理解何为版本控制系统VCS？</p>
+<h4 id="何为版本控制系统VCS？"><a href="#何为版本控制系统VCS？" class="headerlink" title="何为版本控制系统VCS？"></a>何为版本控制系统VCS？</h4><p><strong>版本控制、主动提交、中央仓库</strong>这三个要素，共同构成了版本控制系统VCS的核心；开发团队中的每个人向中央仓库主动提交自己的改动和同步别人的改动，并在需要的时候查看和操作历史版本，这就是版本控制系统。</p>
+<p><strong>版本控制</strong>是最基本的功能：形象地来理解，对于我们熟知的<code>command/control + z</code>撤销操作可以视作最简化的版本控制模型。操作一次回到上一次操作，两次就是回到上两次操作。同样的在写程序的时候我们也会经常碰到写错或者想回退的情况，所谓的版本控制就是在文件的修改过程中保留修改历史，让我们可以方便地撤销之前对于文件的修改操作。</p>
+<p><strong>主动提交</strong>：由于代码修改的生命周期相比文本编辑非常长，如果采用每次自动保存的形式来保存修改历史，将会导致改动的历史频繁且无章可循。VCS采用主动提交的方式来将改动记录到版本历史中，并附带信息更方便查找以及其他操作。</p>
+<p><strong>中央仓库</strong>：代码更多的是多人共同开发，需要一个中央仓库作为代码的存储中心以便所有人都可以看到以及下载他人的改动。</p>
+<h4 id="何为分布式版本控制系统DVCS"><a href="#何为分布式版本控制系统DVCS" class="headerlink" title="何为分布式版本控制系统DVCS?"></a>何为分布式版本控制系统DVCS?</h4><p><strong>中央式VCS的工作模式</strong>：在公司服务器上创建一个中央仓库，我把最初写的代码框架提交到中央仓库（直接交互），我的队友们也要加入开发，就从中央仓库拉取到我的初始代码，此时开始我们并行开发。之后，每个人开发完一个功能就把新代码提交到中央仓库。每当提交新代码之后，其他人都可以去中央仓库拉取最新的代码。</p>
+<p><strong>DVCS工作模式</strong>：我有一个初始代码框架并提交到了本地仓库、然后我在服务器上创建一个中央仓库并把之前的提交从本地仓库push到服务器的中央仓库，其他队友要进来开发首先把中央仓库的所有内容clone到本地（此时他们就拥有了本地仓库，开始并行开发）。之后每个人独立开发不同功能，开发中的每一步都可以提交到本地仓库，某个功能开发好了可以把这个功能所有的提交从本地仓库推送到中央仓库。每当有人有新的push，其他人都可以同步到自己仓库并和本地代码合并。</p>
+<p>在VCS上增加了distributed的概念。</p>
+<p>分布式 VCS (Distributed VCS / DVCS)和中央式的区别在于，分布式 VCS 除了中央仓库之外，还有本地仓库:团队中每一个成员的机器上都有一份本地仓库，这个仓库里包含了所有的版本历史，或者换句话说，每个人在自己的机器上就可以提交代码、查看历史， 而无需联网和中央仓库交互——当然，取而代之的，你需要和本地仓库交互。中央式 VCS 的中央仓库有两个主要功能:保存版本历史、同步团队代码。而在分布式 VCS 中，保存版本历史的工作转交到了每个团队成员的本地仓库中，中央仓库就只剩下了同步 团队代码这一个主要任务。它的中央仓库依然也保存了历史版本，但这份历史版本更多的是作为团队间的同步中转站。</p>
+<p>分布式 VCS可粗略理解为代码提交上传分开的中央式 VCS，增加本地仓库的交互。减轻中央仓库功能压力使其专注于同步团队代码，同时也让每个人可以在个人环境中提交和查看历史。其优势在于：1、大多数的操作可以在本地进行，所以速度更快，而且无需联网。2、由于可以提交到本地，所以你可以分步提交代码，把代码提交做得更细，而不是一个提交包含很多代码，难以 review 也难以回溯。缺点在于：由于每个机器都有完整的本地仓库，所以本地占用的存储比中央式 VCS 要高。初次获取项目(Git 术语:clone)的时候会比较耗时。</p>
 
             </div>
             <hr>
@@ -314,8 +289,6 @@
                     <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/Git/">Git</a>
-                    
-                      <a class="hover-with-bg" href="/tags/merge/">merge</a>
                     
                   </div>
                 
@@ -357,21 +330,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/12/12/hello-world/">
+                      <a href="/2020/10/11/Git-merge/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Hello World</span>
+                        <span class="hidden-mobile">Git Merge</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/2020/10/01/whatIsGit/">
-                        <span class="hidden-mobile">What is Git ？</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>

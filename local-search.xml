@@ -124,5 +124,30 @@
   
   
   
+  <entry>
+    <title>What is Git ？</title>
+    <link href="/2020/10/01/whatIsGit/"/>
+    <url>/2020/10/01/whatIsGit/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>你真的知道什么是Git吗？</strong></p><span id="more"></span><p style="text-align:center;color:#8EC0E4;font-size:1.5em;font-weight: bold;">Git is a Distributed Version Control System.</p><h3 id="BUT-Why-Git-is-a-Distributed-Version-Control-System"><a href="#BUT-Why-Git-is-a-Distributed-Version-Control-System" class="headerlink" title="BUT :  Why Git is a Distributed Version Control System ?"></a>BUT :  Why Git is a Distributed Version Control System ?</h3><p>所谓的Git是一个分布式版本控制系统（DVCS）这句话究竟如何理解？首先先理解何为版本控制系统VCS？</p><h4 id="何为版本控制系统VCS？"><a href="#何为版本控制系统VCS？" class="headerlink" title="何为版本控制系统VCS？"></a>何为版本控制系统VCS？</h4><p><strong>版本控制、主动提交、中央仓库</strong>这三个要素，共同构成了版本控制系统VCS的核心；开发团队中的每个人向中央仓库主动提交自己的改动和同步别人的改动，并在需要的时候查看和操作历史版本，这就是版本控制系统。</p><p><strong>版本控制</strong>是最基本的功能：形象地来理解，对于我们熟知的<code>command/control + z</code>撤销操作可以视作最简化的版本控制模型。操作一次回到上一次操作，两次就是回到上两次操作。同样的在写程序的时候我们也会经常碰到写错或者想回退的情况，所谓的版本控制就是在文件的修改过程中保留修改历史，让我们可以方便地撤销之前对于文件的修改操作。</p><p><strong>主动提交</strong>：由于代码修改的生命周期相比文本编辑非常长，如果采用每次自动保存的形式来保存修改历史，将会导致改动的历史频繁且无章可循。VCS采用主动提交的方式来将改动记录到版本历史中，并附带信息更方便查找以及其他操作。</p><p><strong>中央仓库</strong>：代码更多的是多人共同开发，需要一个中央仓库作为代码的存储中心以便所有人都可以看到以及下载他人的改动。</p><h4 id="何为分布式版本控制系统DVCS"><a href="#何为分布式版本控制系统DVCS" class="headerlink" title="何为分布式版本控制系统DVCS?"></a>何为分布式版本控制系统DVCS?</h4><p><strong>中央式VCS的工作模式</strong>：在公司服务器上创建一个中央仓库，我把最初写的代码框架提交到中央仓库（直接交互），我的队友们也要加入开发，就从中央仓库拉取到我的初始代码，此时开始我们并行开发。之后，每个人开发完一个功能就把新代码提交到中央仓库。每当提交新代码之后，其他人都可以去中央仓库拉取最新的代码。</p><p><strong>DVCS工作模式</strong>：我有一个初始代码框架并提交到了本地仓库、然后我在服务器上创建一个中央仓库并把之前的提交从本地仓库push到服务器的中央仓库，其他队友要进来开发首先把中央仓库的所有内容clone到本地（此时他们就拥有了本地仓库，开始并行开发）。之后每个人独立开发不同功能，开发中的每一步都可以提交到本地仓库，某个功能开发好了可以把这个功能所有的提交从本地仓库推送到中央仓库。每当有人有新的push，其他人都可以同步到自己仓库并和本地代码合并。</p><p>在VCS上增加了distributed的概念。</p><p>分布式 VCS (Distributed VCS / DVCS)和中央式的区别在于，分布式 VCS 除了中央仓库之外，还有本地仓库:团队中每一个成员的机器上都有一份本地仓库，这个仓库里包含了所有的版本历史，或者换句话说，每个人在自己的机器上就可以提交代码、查看历史， 而无需联网和中央仓库交互——当然，取而代之的，你需要和本地仓库交互。中央式 VCS 的中央仓库有两个主要功能:保存版本历史、同步团队代码。而在分布式 VCS 中，保存版本历史的工作转交到了每个团队成员的本地仓库中，中央仓库就只剩下了同步 团队代码这一个主要任务。它的中央仓库依然也保存了历史版本，但这份历史版本更多的是作为团队间的同步中转站。</p><p>分布式 VCS可粗略理解为代码提交上传分开的中央式 VCS，增加本地仓库的交互。减轻中央仓库功能压力使其专注于同步团队代码，同时也让每个人可以在个人环境中提交和查看历史。其优势在于：1、大多数的操作可以在本地进行，所以速度更快，而且无需联网。2、由于可以提交到本地，所以你可以分步提交代码，把代码提交做得更细，而不是一个提交包含很多代码，难以 review 也难以回溯。缺点在于：由于每个机器都有完整的本地仓库，所以本地占用的存储比中央式 VCS 要高。初次获取项目(Git 术语:clone)的时候会比较耗时。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>git</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Git</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
   
 </search>
