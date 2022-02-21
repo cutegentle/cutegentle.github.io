@@ -13,23 +13,23 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="你真的知道什么是Git吗？">
+  <meta name="description" content="此篇介绍Git基础操作。">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <meta name="description" content="你真的知道什么是Git吗？">
+  <meta name="description" content="此篇介绍Git基础操作。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="What is Git ？">
-<meta property="og:url" content="http://example.com/2020/10/01/whatIsGit/index.html">
+<meta property="og:title" content="Git Start">
+<meta property="og:url" content="http://example.com/2020/10/02/git-quick-start/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="你真的知道什么是Git吗？">
+<meta property="og:description" content="此篇介绍Git基础操作。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-10-01T09:22:33.000Z">
-<meta property="article:modified_time" content="2022-02-17T12:56:21.881Z">
+<meta property="article:published_time" content="2020-10-02T07:13:01.000Z">
+<meta property="article:modified_time" content="2022-02-21T12:20:14.294Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary_large_image">
   
-  <title>What is Git ？ - Hexo</title>
+  <title>Git Start - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -187,7 +187,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="What is Git ？">
+            <span class="h2" id="subtitle" title="Git Start">
               
             </span>
 
@@ -197,8 +197,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-10-01 17:22" pubdate>
-        2020年10月1日 下午
+      <time datetime="2020-10-02 15:13" pubdate>
+        2020年10月2日 下午
       </time>
     </span>
   
@@ -208,7 +208,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.5k 字
+      1.2k 字
     </span>
   
 
@@ -217,7 +217,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5 分钟
+      4 分钟
     </span>
   
 
@@ -246,30 +246,30 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">What is Git ？</h1>
+            <h1 style="display: none">Git Start</h1>
             
             <div class="markdown-body">
-              <p><strong>你真的知道什么是Git吗？</strong></p>
+              <p>此篇介绍Git基础操作。</p>
 <span id="more"></span>
 
+<h2 id="quick-start"><a href="#quick-start" class="headerlink" title="quick start"></a>quick start</h2><h3 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git <span class="hljs-built_in">clone</span> git@github.com:cutegentle/git-exercise.git<br>$ git-exercise git:(main) la<br>total 40<br>drwxr-xr-x  12 w  staff   384B  9 21 17:43 .git<br>-rw-r--r--   1 w  staff   1.4K  9 21 17:43 .gitignore<br>-rw-r--r--   1 w  staff    11K  9 21 17:43 LICENSE<br>-rw-r--r--   1 w  staff    28B  9 21 17:43 README.md<br>$ <br>$ git-exercise git:(main) ls<br></code></pre></td></tr></table></figure>
+
+<p>讲下工作区等概念，以及目录文件的一些用处。可结合sourcetree界面。</p>
+<h3 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) git <span class="hljs-built_in">log</span><br>commit 128b182c3a76421ee5c321ad230579c53e9ec488 (HEAD -&gt; main, origin/main, origin/HEAD)<br>$ q //quit<br></code></pre></td></tr></table></figure>
+
+<p>引用，commit等相关知识。</p>
+<h3 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) git status<br>On branch main<br>Your branch is up to date with <span class="hljs-string">&#x27;origin/main&#x27;</span>.<br><br>Untracked files:<br>  (use <span class="hljs-string">&quot;git add &lt;file&gt;...&quot;</span> to include <span class="hljs-keyword">in</span> what will be committed)<br>	master1.txt<br><br>nothing added to commit but untracked files present (use <span class="hljs-string">&quot;git add&quot;</span> to track)<br><br></code></pre></td></tr></table></figure>
+
+<h3 id="git-add-amp-commit"><a href="#git-add-amp-commit" class="headerlink" title="git add &amp; commit"></a>git add &amp; commit</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) ✗ git add .<br>$ git-exercise git:(main) ✗ git commit -m <span class="hljs-string">&quot;main第一次本地提交&quot;</span><br>$ git-exercise git:(main) git status<br>On branch main<br>Your branch is ahead of <span class="hljs-string">&#x27;origin/main&#x27;</span> by 1 commit.<br>  (use <span class="hljs-string">&quot;git push&quot;</span> to publish your <span class="hljs-built_in">local</span> commits)<br><br>nothing to commit, working tree clean<br></code></pre></td></tr></table></figure>
+
+<h3 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) git push origin<br>$ git-exercise git:(main) git push origin main<br></code></pre></td></tr></table></figure>
+
+<h3 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) git pull origin main <br></code></pre></td></tr></table></figure>
 
 
-<p style="text-align:center;color:#8EC0E4;font-size:1.5em;font-weight: bold;">
-Git is a Distributed Version Control System.
-</p>
 
-
-
-<h3 id="BUT-Why-Git-is-a-Distributed-Version-Control-System"><a href="#BUT-Why-Git-is-a-Distributed-Version-Control-System" class="headerlink" title="BUT :  Why Git is a Distributed Version Control System ?"></a>BUT :  Why Git is a Distributed Version Control System ?</h3><p>所谓的Git是一个分布式版本控制系统（DVCS）这句话究竟如何理解？首先先理解何为版本控制系统VCS？</p>
-<h4 id="何为版本控制系统VCS？"><a href="#何为版本控制系统VCS？" class="headerlink" title="何为版本控制系统VCS？"></a>何为版本控制系统VCS？</h4><p><strong>版本控制、主动提交、中央仓库</strong>这三个要素，共同构成了版本控制系统VCS的核心；开发团队中的每个人向中央仓库主动提交自己的改动和同步别人的改动，并在需要的时候查看和操作历史版本，这就是版本控制系统。</p>
-<p><strong>版本控制</strong>是最基本的功能：形象地来理解，对于我们熟知的<code>command/control + z</code>撤销操作可以视作最简化的版本控制模型。操作一次回到上一次操作，两次就是回到上两次操作。同样的在写程序的时候我们也会经常碰到写错或者想回退的情况，所谓的版本控制就是在文件的修改过程中保留修改历史，让我们可以方便地撤销之前对于文件的修改操作。</p>
-<p><strong>主动提交</strong>：由于代码修改的生命周期相比文本编辑非常长，如果采用每次自动保存的形式来保存修改历史，将会导致改动的历史频繁且无章可循。VCS采用主动提交的方式来将改动记录到版本历史中，并附带信息更方便查找以及其他操作。</p>
-<p><strong>中央仓库</strong>：代码更多的是多人共同开发，需要一个中央仓库作为代码的存储中心以便所有人都可以看到以及下载他人的改动。</p>
-<h4 id="何为分布式版本控制系统DVCS"><a href="#何为分布式版本控制系统DVCS" class="headerlink" title="何为分布式版本控制系统DVCS?"></a>何为分布式版本控制系统DVCS?</h4><p><strong>中央式VCS的工作模式</strong>：在公司服务器上创建一个中央仓库，我把最初写的代码框架提交到中央仓库（直接交互），我的队友们也要加入开发，就从中央仓库拉取到我的初始代码，此时开始我们并行开发。之后，每个人开发完一个功能就把新代码提交到中央仓库。每当提交新代码之后，其他人都可以去中央仓库拉取最新的代码。</p>
-<p><strong>DVCS工作模式</strong>：我有一个初始代码框架并提交到了本地仓库、然后我在服务器上创建一个中央仓库并把之前的提交从本地仓库push到服务器的中央仓库，其他队友要进来开发首先把中央仓库的所有内容clone到本地（此时他们就拥有了本地仓库，开始并行开发）。之后每个人独立开发不同功能，开发中的每一步都可以提交到本地仓库，某个功能开发好了可以把这个功能所有的提交从本地仓库推送到中央仓库。每当有人有新的push，其他人都可以同步到自己仓库并和本地代码合并。</p>
-<p>在VCS上增加了distributed的概念。</p>
-<p>分布式 VCS (Distributed VCS / DVCS)和中央式的区别在于，分布式 VCS 除了中央仓库之外，还有本地仓库:团队中每一个成员的机器上都有一份本地仓库，这个仓库里包含了所有的版本历史，或者换句话说，每个人在自己的机器上就可以提交代码、查看历史， 而无需联网和中央仓库交互——当然，取而代之的，你需要和本地仓库交互。中央式 VCS 的中央仓库有两个主要功能:保存版本历史、同步团队代码。而在分布式 VCS 中，保存版本历史的工作转交到了每个团队成员的本地仓库中，中央仓库就只剩下了同步 团队代码这一个主要任务。它的中央仓库依然也保存了历史版本，但这份历史版本更多的是作为团队间的同步中转站。</p>
-<p>分布式 VCS可粗略理解为代码提交上传分开的中央式 VCS，增加本地仓库的交互。减轻中央仓库功能压力使其专注于同步团队代码，同时也让每个人可以在个人环境中提交和查看历史。其优势在于：1、大多数的操作可以在本地进行，所以速度更快，而且无需联网。2、由于可以提交到本地，所以你可以分步提交代码，把代码提交做得更细，而不是一个提交包含很多代码，难以 review 也难以回溯。缺点在于：由于每个机器都有完整的本地仓库，所以本地占用的存储比中央式 VCS 要高。初次获取项目(Git 术语:clone)的时候会比较耗时。</p>
+<p>值得一提的是要注意HEAD，branch的指向。</p>
+<p><strong>以上为git最为基本的命令。需烂熟于心。</strong></p>
 
             </div>
             <hr>
@@ -330,15 +330,21 @@ Git is a Distributed Version Control System.
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/10/02/git-quick-start/">
+                      <a href="/2020/10/11/Git-merge/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Git Start</span>
+                        <span class="hidden-mobile">Git Merge</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2020/10/01/whatIsGit/">
+                        <span class="hidden-mobile">What is Git ？</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>

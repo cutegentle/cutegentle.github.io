@@ -98,6 +98,19 @@
   
   
   <entry>
+    <title>GitHub+Hexo deploy article wiz pic</title>
+    <link href="/2020/12/11/hexo+github-picArticle/"/>
+    <url>/2020/12/11/hexo+github-picArticle/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本篇将简述如何发布带图片的Markdown文件。</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="修改全局-config-yml文件"><a href="#修改全局-config-yml文件" class="headerlink" title="修改全局_config.yml文件"></a>修改全局<code>_config.yml</code>文件</h3><p>在Blog根目录下，查看<code>_config.yml</code>文件，<code>command + f</code>搜索<code>post_asset_folder</code>字段，设置为true。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">post_asset_folder: <span class="hljs-literal">false</span>   ---&gt;  post_asset_folder: <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure><h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">cd</span> blog根目录<br>$ npm install https://github.com/CodeFalling/hexo-asset-image --save<br></code></pre></td></tr></table></figure><p>ps：眼熟的同学就会发现，其做法应该与<code>Typora</code>显示图片的方式类似，采用同路径的文件夹形式。</p><h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><p>设置 <code>post_asset_folder</code> 参数后，在创建文章时，Hexo 会自动建立一个与文章同名的文件夹，可以把与该文章相关的所有资源都放到此文件夹内，这样就可以更方便的使用资源。</p><h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;test&quot;</span>  //创建名字为<span class="hljs-built_in">test</span>的文章<br>$ <span class="hljs-built_in">cd</span> ~/<span class="hljs-built_in">source</span>/_posts //进入文章目录<br>$ ls  //会出现如下文件，一个文章的md；一个文章同名的文件夹<br>test.md   <span class="hljs-built_in">test</span><br></code></pre></td></tr></table></figure><p>所要做的就是将对应的图片放入对应文件夹中即可。以下为图片用法。</p><p>实际上，也可以手动建立同名文件夹进行使用。只要安装了插件就可以。图片用法与Typora类似。</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;Git-merge/gitmerge1.png&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;zoom:30%;&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure><img src="/2020/12/11/hexo+github-picArticle/picArticle.png" alt="测试图片" style="zoom:50%;">]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Git Merge</title>
     <link href="/2020/10/11/Git-merge/"/>
     <url>/2020/10/11/Git-merge/</url>
@@ -117,6 +130,31 @@
       <tag>Git</tag>
       
       <tag>merge</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Git Start</title>
+    <link href="/2020/10/02/git-quick-start/"/>
+    <url>/2020/10/02/git-quick-start/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>此篇介绍Git基础操作。</p><span id="more"></span><h2 id="quick-start"><a href="#quick-start" class="headerlink" title="quick start"></a>quick start</h2><h3 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git <span class="hljs-built_in">clone</span> git@github.com:cutegentle/git-exercise.git<br>$ git-exercise git:(main) la<br>total 40<br>drwxr-xr-x  12 w  staff   384B  9 21 17:43 .git<br>-rw-r--r--   1 w  staff   1.4K  9 21 17:43 .gitignore<br>-rw-r--r--   1 w  staff    11K  9 21 17:43 LICENSE<br>-rw-r--r--   1 w  staff    28B  9 21 17:43 README.md<br>$ <br>$ git-exercise git:(main) ls<br></code></pre></td></tr></table></figure><p>讲下工作区等概念，以及目录文件的一些用处。可结合sourcetree界面。</p><h3 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) git <span class="hljs-built_in">log</span><br>commit 128b182c3a76421ee5c321ad230579c53e9ec488 (HEAD -&gt; main, origin/main, origin/HEAD)<br>$ q //quit<br></code></pre></td></tr></table></figure><p>引用，commit等相关知识。</p><h3 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) git status<br>On branch main<br>Your branch is up to date with <span class="hljs-string">&#x27;origin/main&#x27;</span>.<br><br>Untracked files:<br>  (use <span class="hljs-string">&quot;git add &lt;file&gt;...&quot;</span> to include <span class="hljs-keyword">in</span> what will be committed)<br>master1.txt<br><br>nothing added to commit but untracked files present (use <span class="hljs-string">&quot;git add&quot;</span> to track)<br><br></code></pre></td></tr></table></figure><h3 id="git-add-amp-commit"><a href="#git-add-amp-commit" class="headerlink" title="git add &amp; commit"></a>git add &amp; commit</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) ✗ git add .<br>$ git-exercise git:(main) ✗ git commit -m <span class="hljs-string">&quot;main第一次本地提交&quot;</span><br>$ git-exercise git:(main) git status<br>On branch main<br>Your branch is ahead of <span class="hljs-string">&#x27;origin/main&#x27;</span> by 1 commit.<br>  (use <span class="hljs-string">&quot;git push&quot;</span> to publish your <span class="hljs-built_in">local</span> commits)<br><br>nothing to commit, working tree clean<br></code></pre></td></tr></table></figure><h3 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) git push origin<br>$ git-exercise git:(main) git push origin main<br></code></pre></td></tr></table></figure><h3 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) git pull origin main <br></code></pre></td></tr></table></figure><p>值得一提的是要注意HEAD，branch的指向。</p><p><strong>以上为git最为基本的命令。需烂熟于心。</strong></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>git</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Git</tag>
       
     </tags>
     
