@@ -13,23 +13,26 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="此篇介绍Git基础操作。">
+  <meta name="description" content="此篇介绍Git push &amp;amp; checkout的本质。曾经的我认为：push 指令做的事是「上传本地提交」。">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <meta name="description" content="此篇介绍Git基础操作。">
+  <meta name="description" content="此篇介绍Git push &amp; checkout的本质。曾经的我认为：push 指令做的事是「上传本地提交」。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git Start">
-<meta property="og:url" content="http://example.com/2020/10/02/git-quick-start/index.html">
+<meta property="og:title" content="Git push &amp; checkout">
+<meta property="og:url" content="http://example.com/2020/10/04/git-push/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="此篇介绍Git基础操作。">
+<meta property="og:description" content="此篇介绍Git push &amp; checkout的本质。曾经的我认为：push 指令做的事是「上传本地提交」。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-10-02T07:13:01.000Z">
-<meta property="article:modified_time" content="2022-02-21T12:20:14.294Z">
+<meta property="og:image" content="http://example.com/2020/10/04/git-push/image-20220222180224235.png">
+<meta property="og:image" content="http://example.com/2020/10/04/git-push/image-20220222182535129.png">
+<meta property="article:published_time" content="2020-10-04T07:13:01.000Z">
+<meta property="article:modified_time" content="2022-02-22T10:27:18.942Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2020/10/04/git-push/image-20220222180224235.png">
   
-  <title>Git Start - Hexo</title>
+  <title>Git push &amp; checkout - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -187,7 +190,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Git Start">
+            <span class="h2" id="subtitle" title="Git push &amp; checkout">
               
             </span>
 
@@ -197,8 +200,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-10-02 15:13" pubdate>
-        2020年10月2日 下午
+      <time datetime="2020-10-04 15:13" pubdate>
+        2020年10月4日 下午
       </time>
     </span>
   
@@ -208,7 +211,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k 字
+      1.8k 字
     </span>
   
 
@@ -217,7 +220,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4 分钟
+      6 分钟
     </span>
   
 
@@ -246,30 +249,37 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Git Start</h1>
+            <h1 style="display: none">Git push &amp; checkout</h1>
             
             <div class="markdown-body">
-              <p>此篇介绍Git基础操作。</p>
+              <p>此篇介绍Git push &amp; checkout的本质。曾经的我认为：<code>push</code> 指令做的事是「上传本地提交」。</p>
 <span id="more"></span>
 
-<h2 id="quick-start"><a href="#quick-start" class="headerlink" title="quick start"></a>quick start</h2><h3 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git <span class="hljs-built_in">clone</span> git@github.com:cutegentle/git-exercise.git<br>$ git-exercise git:(main) la<br>total 40<br>drwxr-xr-x  12 w  staff   384B  9 21 17:43 .git<br>-rw-r--r--   1 w  staff   1.4K  9 21 17:43 .gitignore<br>-rw-r--r--   1 w  staff    11K  9 21 17:43 LICENSE<br>-rw-r--r--   1 w  staff    28B  9 21 17:43 README.md<br>$ <br>$ git-exercise git:(main) ls<br></code></pre></td></tr></table></figure>
-
-<p>讲下工作区等概念，以及目录文件的一些用处。可结合sourcetree界面。</p>
-<h3 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) git <span class="hljs-built_in">log</span><br>commit 128b182c3a76421ee5c321ad230579c53e9ec488 (HEAD -&gt; main, origin/main, origin/HEAD)<br>$ q //quit<br></code></pre></td></tr></table></figure>
-
-<p>引用，commit等相关知识。</p>
-<h3 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) git status<br>On branch main<br>Your branch is up to date with <span class="hljs-string">&#x27;origin/main&#x27;</span>.<br><br>Untracked files:<br>  (use <span class="hljs-string">&quot;git add &lt;file&gt;...&quot;</span> to include <span class="hljs-keyword">in</span> what will be committed)<br>	master1.txt<br><br>nothing added to commit but untracked files present (use <span class="hljs-string">&quot;git add&quot;</span> to track)<br><br></code></pre></td></tr></table></figure>
-
-<h3 id="git-add-amp-commit"><a href="#git-add-amp-commit" class="headerlink" title="git add &amp; commit"></a>git add &amp; commit</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) ✗ git add .<br>$ git-exercise git:(main) ✗ git commit -m <span class="hljs-string">&quot;main第一次本地提交&quot;</span><br>$ git-exercise git:(main) git status<br>On branch main<br>Your branch is ahead of <span class="hljs-string">&#x27;origin/main&#x27;</span> by 1 commit.<br>  (use <span class="hljs-string">&quot;git push&quot;</span> to publish your <span class="hljs-built_in">local</span> commits)<br><br>nothing to commit, working tree clean<br></code></pre></td></tr></table></figure>
-
-<h3 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) git push origin<br>$ git-exercise git:(main) git push origin main<br></code></pre></td></tr></table></figure>
-
-<h3 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) git pull origin main <br></code></pre></td></tr></table></figure>
 
 
+<h2 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h2><h3 id="先说关键点"><a href="#先说关键点" class="headerlink" title="先说关键点"></a>先说关键点</h3><p><code>push</code> 这个指令的本质：</p>
+<ol>
+<li><code>push</code> 是把当前的分支上传到远程仓库，并把这个 <code>branch</code> 的路径上的所有 <code>commit</code>s 也一并上传。</li>
+<li><code>push</code> 的时候，如果当前分支是一个本地创建的分支，需要指定远程仓库名和分支名，用 <code>git push origin branch_name</code> 的格式，而不能只用 <code>git push</code>（只能把本地 <code>master</code> 的最新位置更新到远端，并且把它的路径上的  <code>commit</code>s 上传）；</li>
+<li><code>push</code> 的时候之后上传当前分支，并不会上传 <code>HEAD</code>；远程仓库的 <code>HEAD</code> 是永远指向默认分支（即 <code>master</code>）的。<code>push</code> 的时候只会上传当前的 <code>branch</code> 的指向，并不会把本地的 <code>HEAD</code> 的指向也一起上传到远程仓库。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) git push<br>只能在main上简写。<br>$ git-exercise git:(sami) git push origin sami<br>~<br>remote: Create a pull request <span class="hljs-keyword">for</span> <span class="hljs-string">&#x27;sami&#x27;</span> on GitHub by visiting:<br>remote:      https://github.com/cutegentle/git-exercise/pull/new/sami<br>To github.com:cutegentle/git-exercise.git<br> * [new branch]      sami -&gt; sami<br></code></pre></td></tr></table></figure>
 
-<p>值得一提的是要注意HEAD，branch的指向。</p>
-<p><strong>以上为git最为基本的命令。需烂熟于心。</strong></p>
+<p><img src="/2020/10/04/git-push/image-20220222180224235.png" srcset="/img/loading.gif" lazyload alt="1"></p>
+<p>在sami分支使用<code>tig</code>查看提交历史，更能理解branch可以作为从initial开始的一条<strong>串</strong>。</p>
+<h3 id="checkout-本质"><a href="#checkout-本质" class="headerlink" title="checkout 本质"></a>checkout 本质</h3><p>实质上，<code>checkout</code> 并不止可以切换 <code>branch</code>。<code>checkout</code> 本质上的功能其实是：签出（ checkout ）指定的 <code>commit</code>。</p>
+<p><code>git checkout branch名</code> 的本质，其实是把 <code>HEAD</code> 指向指定的 <code>branch</code>，然后签出这个 <code>branch</code> 所对应的 <code>commit</code> 的工作目录。所以同样的，<code>checkout</code> 的目标也可以不是 <code>branch</code>，而直接指定某个 <code>commit</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">git checkout HEAD^^<br>git checkout master~5<br>git checkout 78a4bc<br>git checkout 78a4bc^<br></code></pre></td></tr></table></figure>
+
+
+
+<p><strong>存在疑问：</strong></p>
+<p><img src="/2020/10/04/git-push/image-20220222182535129.png" srcset="/img/loading.gif" lazyload alt="2"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) git checkout 128b<br>Note: switching to <span class="hljs-string">&#x27;128b&#x27;</span>.<br><br>You are <span class="hljs-keyword">in</span> <span class="hljs-string">&#x27;detached HEAD&#x27;</span> state. You can look around, make experimental<br>changes and commit them, and you can discard any commits you make <span class="hljs-keyword">in</span> this<br>state without impacting any branches by switching back to a branch.<br><br>If you want to create a new branch to retain commits you create, you may<br><span class="hljs-keyword">do</span> so (now or later) by using -c with the switch <span class="hljs-built_in">command</span>. Example:<br><br>  git switch -c &lt;new-branch-name&gt;<br><br>Or undo this operation with:<br><br>  git switch -<br><br>Turn off this advice by setting config variable advice.detachedHead to <span class="hljs-literal">false</span><br><br>HEAD is now at 128b182 Initial commit<br>恢复：<br>$ git-exercise git:(128b182) git checkout main<br>Previous HEAD position was 128b182 Initial commit<br>Switched to branch <span class="hljs-string">&#x27;main&#x27;</span><br>Your branch is up to date with <span class="hljs-string">&#x27;origin/main&#x27;</span>.<br></code></pre></td></tr></table></figure>
+
+
+
+<h4 id="checkout-和-reset-的不同"><a href="#checkout-和-reset-的不同" class="headerlink" title="checkout 和 reset 的不同"></a>checkout 和 reset 的不同</h4><p><code>checkout</code> 和 <code>reset</code> 都可以切换 <code>HEAD</code> 的位置，它们除了有许多细节的差异外，最大的区别在于：<code>reset</code> 在移动 <code>HEAD</code> 时会带着它所指向的 <code>branch</code> 一起移动，而 <code>checkout</code> 不会。当你用 <code>checkout</code> 指向其他地方的时候，<code>HEAD</code> 和 它所指向的 <code>branch</code> 就自动脱离了。</p>
 
             </div>
             <hr>
@@ -330,9 +340,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/10/03/git-branch/">
+                      <a href="/2020/10/05/FeatureBranching/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Git Branch</span>
+                        <span class="hidden-mobile">Feature Branching</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -340,8 +350,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/10/01/whatIsGit/">
-                        <span class="hidden-mobile">What is Git ？</span>
+                      <a href="/2020/10/03/git-branch/">
+                        <span class="hidden-mobile">Git Branch</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

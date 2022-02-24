@@ -13,23 +13,26 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="此篇介绍Git基础操作。">
+  <meta name="description" content="此篇介绍Git分支的一些操作，以及原理。">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <meta name="description" content="此篇介绍Git基础操作。">
+  <meta name="description" content="此篇介绍Git分支的一些操作，以及原理。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git Start">
-<meta property="og:url" content="http://example.com/2020/10/02/git-quick-start/index.html">
+<meta property="og:title" content="Git Branch">
+<meta property="og:url" content="http://example.com/2020/10/03/git-branch/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="此篇介绍Git基础操作。">
+<meta property="og:description" content="此篇介绍Git分支的一些操作，以及原理。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-10-02T07:13:01.000Z">
-<meta property="article:modified_time" content="2022-02-21T12:20:14.294Z">
+<meta property="og:image" content="http://example.com/2020/10/03/git-branch/image-20220222164239028.png">
+<meta property="og:image" content="http://example.com/2020/10/03/git-branch/image-20220222171445719.png">
+<meta property="article:published_time" content="2020-10-03T07:13:01.000Z">
+<meta property="article:modified_time" content="2022-02-22T09:40:24.303Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2020/10/03/git-branch/image-20220222164239028.png">
   
-  <title>Git Start - Hexo</title>
+  <title>Git Branch - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -187,7 +190,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Git Start">
+            <span class="h2" id="subtitle" title="Git Branch">
               
             </span>
 
@@ -197,8 +200,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-10-02 15:13" pubdate>
-        2020年10月2日 下午
+      <time datetime="2020-10-03 15:13" pubdate>
+        2020年10月3日 下午
       </time>
     </span>
   
@@ -208,7 +211,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k 字
+      2.2k 字
     </span>
   
 
@@ -217,7 +220,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4 分钟
+      7 分钟
     </span>
   
 
@@ -246,30 +249,60 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Git Start</h1>
+            <h1 style="display: none">Git Branch</h1>
             
             <div class="markdown-body">
-              <p>此篇介绍Git基础操作。</p>
+              <p>此篇介绍Git分支的一些操作，以及原理。</p>
 <span id="more"></span>
 
-<h2 id="quick-start"><a href="#quick-start" class="headerlink" title="quick start"></a>quick start</h2><h3 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git <span class="hljs-built_in">clone</span> git@github.com:cutegentle/git-exercise.git<br>$ git-exercise git:(main) la<br>total 40<br>drwxr-xr-x  12 w  staff   384B  9 21 17:43 .git<br>-rw-r--r--   1 w  staff   1.4K  9 21 17:43 .gitignore<br>-rw-r--r--   1 w  staff    11K  9 21 17:43 LICENSE<br>-rw-r--r--   1 w  staff    28B  9 21 17:43 README.md<br>$ <br>$ git-exercise git:(main) ls<br></code></pre></td></tr></table></figure>
+<h2 id="Begin"><a href="#Begin" class="headerlink" title="Begin"></a>Begin</h2><h3 id="git-branch"><a href="#git-branch" class="headerlink" title="git branch"></a>git branch</h3><p>当本地无分支时。一键创建分支并切换。<strong>切换分支后，HEAD改变。</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) git checkout -b sami<br>Switched to a new branch <span class="hljs-string">&#x27;sami&#x27;</span><br><br>$ git branch sami                          创建分支<br>$ git checkout sami                        切换分支<br></code></pre></td></tr></table></figure>
 
-<p>讲下工作区等概念，以及目录文件的一些用处。可结合sourcetree界面。</p>
-<h3 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) git <span class="hljs-built_in">log</span><br>commit 128b182c3a76421ee5c321ad230579c53e9ec488 (HEAD -&gt; main, origin/main, origin/HEAD)<br>$ q //quit<br></code></pre></td></tr></table></figure>
-
-<p>引用，commit等相关知识。</p>
-<h3 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) git status<br>On branch main<br>Your branch is up to date with <span class="hljs-string">&#x27;origin/main&#x27;</span>.<br><br>Untracked files:<br>  (use <span class="hljs-string">&quot;git add &lt;file&gt;...&quot;</span> to include <span class="hljs-keyword">in</span> what will be committed)<br>	master1.txt<br><br>nothing added to commit but untracked files present (use <span class="hljs-string">&quot;git add&quot;</span> to track)<br><br></code></pre></td></tr></table></figure>
-
-<h3 id="git-add-amp-commit"><a href="#git-add-amp-commit" class="headerlink" title="git add &amp; commit"></a>git add &amp; commit</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) ✗ git add .<br>$ git-exercise git:(main) ✗ git commit -m <span class="hljs-string">&quot;main第一次本地提交&quot;</span><br>$ git-exercise git:(main) git status<br>On branch main<br>Your branch is ahead of <span class="hljs-string">&#x27;origin/main&#x27;</span> by 1 commit.<br>  (use <span class="hljs-string">&quot;git push&quot;</span> to publish your <span class="hljs-built_in">local</span> commits)<br><br>nothing to commit, working tree clean<br></code></pre></td></tr></table></figure>
-
-<h3 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) git push origin<br>$ git-exercise git:(main) git push origin main<br></code></pre></td></tr></table></figure>
-
-<h3 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) git pull origin main <br></code></pre></td></tr></table></figure>
+<h3 id="init"><a href="#init" class="headerlink" title="init"></a>init</h3><ol>
+<li>在main分支提交两次。文件分别<code>master1.txt</code>, <code>master2.txt</code>。</li>
+<li>在选中处，创建并切换分支sami。</li>
+<li>之后在sami分支提交两次，文件为同一文件<code>sami1.txt</code>。</li>
+</ol>
+<img src="/2020/10/03/git-branch/image-20220222164239028.png" srcset="/img/loading.gif" lazyload alt="1" style="zoom:67%;">
 
 
 
-<p>值得一提的是要注意HEAD，branch的指向。</p>
-<p><strong>以上为git最为基本的命令。需烂熟于心。</strong></p>
+<p>理解上图。之所以一条线是因为自从checkout至sami，main无修改，sami基于main。在sami分支目前三个文件。而切换至main分支仍然是之前两个文件。通俗来讲，再切换至main做一次commit就会出现分叉了。</p>
+<p><img src="/2020/10/03/git-branch/image-20220222171445719.png" srcset="/img/loading.gif" lazyload alt="2"></p>
+<p>sourcetree中空心即为本地HEAD指向。上图切换至sami分支显然main修改的最新文件它不会有。</p>
+<p><code>checkout</code> 的意思就是把某个 <code>commit</code> 作为当前 <code>commit</code>，把 <code>HEAD</code> 移动过去，并把工作目录的文件内容替换成这个 <code>commit</code> 所对应的内容。</p>
+<p><strong>上图实际包含很多知识点。下面先介绍。</strong></p>
+<p>Git 提供了「引用」的机制：使用固定的字符串作为引用，指向某个 <code>commit</code>，作为操作 <code>commit</code> 时的快捷方式。</p>
+<h3 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h3><p> <code>HEAD</code> 是引用中最特殊的一个：它是<strong>指向当前 <code>commit</code> 的引用</strong>。所谓**当前 <code>commit</code>**这个概念很简单，它指的就是当前工作目录所对应的 <code>commit</code>。</p>
+<p>要想理解这一句。首先建立概念，对于Git来说，核心是commit <strong>s</strong>，工作目录的代码归根结底根据commit而变。</p>
+<p>每次当有新的 <code>commit</code> 的时候，工作目录自动与最新的 <code>commit</code> 对应；而与此同时，<code>HEAD</code> 也会转而指向最新的 <code>commit</code>。事实上，当使用 <code>checkout</code>、<code>reset</code> 等指令手动指定改变当前 <code>commit</code> 的时候，<code>HEAD</code> 也会一起跟过去。</p>
+<p>总之，当前 <code>commit</code> 在哪里，<code>HEAD</code> 就在哪里，这是一个永远自动指向当前 <code>commit</code> 的引用，所以你永远可以用 <code>HEAD</code> 来操作当前 <code>commit</code>。</p>
+<p>此时可以理解为什么切换分支后，文件会不同。归根结底：切换到main分支时，HEAD指向main最新commit。而切换到sami分支时，查看log，HEAD指向sami分支最新commit。</p>
+<h3 id="branch"><a href="#branch" class="headerlink" title="branch"></a>branch</h3><p><code>HEAD</code> 是 Git 中一个独特的引用，它是唯一的。而除了 <code>HEAD</code> 之外，Git 还有一种引用，叫做 <code>branch</code>（分支）。<code>HEAD</code> 除了可以指向 <code>commit</code>，还可以指向一个 <code>branch</code>，当它指向某个 <code>branch</code> 的时候，会通过这个 <code>branch</code> 来间接地指向某个 <code>commit</code>；另外，当 <code>HEAD</code> 在提交时自动向前移动的时候，它会像一个拖钩一样带着它所指向的 <code>branch</code> 一起移动。每当创建一个 <code>commit</code>，那么 <code>HEAD</code> 会带着 <code>master</code> 一起移动到最新的 <code>commit</code>。</p>
+<h3 id="delete-branch"><a href="#delete-branch" class="headerlink" title="delete branch"></a>delete branch</h3><p>不常用。</p>
+<p>删除 <code>branch</code> 的方法非常简单：<code>git branch -d 名称</code>。例如要删除 <code>feature1</code> 这个 branch：</p>
+<p>注意：1. <code>HEAD</code> 指向的 <code>branch</code> 不能删除。如果要删除 <code>HEAD</code> 指向的 <code>branch</code>，需要先用 <code>checkout</code> 把 <code>HEAD</code> 指向其他地方。2. 由于 Git 中的 <code>branch</code> 只是一个引用，所以删除 <code>branch</code> 的操作也只会删掉这个引用，并不会删除任何的 <code>commit</code>。（不过如果一个 <code>commit</code> 不在任何一个 <code>branch</code> 的「路径」上，那么在一定时间后，它会被 Git 的回收机制删除掉。）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git branch -d feature1<br>//出于安全考虑，没有被合并到 master 过的 branch 在删除时会失败,强制删除用如下：<br>$ git branch -D feature1<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="引用本质"><a href="#引用本质" class="headerlink" title="引用本质"></a>引用本质</h3><p>所谓「引用」（reference），其实就是一个个的字符串。这个字符串可以是一个 <code>commit</code> 的 SHA-1 码（例：<code>c08de9a4d8771144cd23986f9f76c4ed729e69b0</code>），也可以是一个 <code>branch</code>（例：<code>ref: refs/heads/feature3</code>）。</p>
+<p>Git 中的 <code>HEAD</code> 和每一个 <code>branch</code> 以及其他的引用，都是以文本文件的形式存储在本地仓库 <code>.git</code> 目录中，而 Git 在工作的时候，就是通过这些文本文件的内容来判断这些所谓的「引用」是指向谁的。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ol>
+<li><code>HEAD</code> 是指向当前 <code>commit</code> 的引用，它具有唯一性，每个仓库中只有一个 <code>HEAD</code>。在每次提交时它都会自动向前移动到最新的 <code>commit</code> 。</li>
+<li><code>branch</code> 是一类引用。<code>HEAD</code> 除了直接指向 <code>commit</code>，也可以通过指向某个 <code>branch</code> 来间接指向 <code>commit</code>。当 <code>HEAD</code> 指向一个 <code>branch</code> 时，<code>commit</code> 发生时，<code>HEAD</code> 会带着它所指向的 <code>branch</code> 一起移动。</li>
+<li>master是 Git 中的默认branch，它和其它branch的区别在于：<ol>
+<li>新建的仓库中的第一个 <code>commit</code> 会被 <code>master</code> 自动指向；</li>
+<li>在 <code>git clone</code> 时，会自动 <code>checkout</code> 出 <code>master</code>。</li>
+</ol>
+</li>
+<li>branch的创建、切换和删除：<ol>
+<li>创建 <code>branch</code> 的方式是 <code>git branch 名称</code> 或 <code>git checkout -b 名称</code>（创建后自动切换）；</li>
+<li>切换的方式是 <code>git checkout 名称</code>；</li>
+<li>删除的方式是 <code>git branch -d 名称</code>。</li>
+</ol>
+</li>
+</ol>
 
             </div>
             <hr>
@@ -330,9 +363,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/10/03/git-branch/">
+                      <a href="/2020/10/04/git-push/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Git Branch</span>
+                        <span class="hidden-mobile">Git push & checkout</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -340,8 +373,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/10/01/whatIsGit/">
-                        <span class="hidden-mobile">What is Git ？</span>
+                      <a href="/2020/10/02/git-quick-start/">
+                        <span class="hidden-mobile">Git Start</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

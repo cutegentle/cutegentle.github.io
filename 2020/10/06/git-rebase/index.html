@@ -13,23 +13,32 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="此篇介绍Git基础操作。">
+  <meta name="description" content="此篇介绍Git rebase等操作。">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <meta name="description" content="此篇介绍Git基础操作。">
+  <meta name="description" content="此篇介绍Git rebase等操作。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git Start">
-<meta property="og:url" content="http://example.com/2020/10/02/git-quick-start/index.html">
+<meta property="og:title" content="Git rebase">
+<meta property="og:url" content="http://example.com/2020/10/06/git-rebase/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="此篇介绍Git基础操作。">
+<meta property="og:description" content="此篇介绍Git rebase等操作。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-10-02T07:13:01.000Z">
-<meta property="article:modified_time" content="2022-02-21T12:20:14.294Z">
+<meta property="og:image" content="http://example.com/2020/10/06/git-rebase/image-20220223195135831.png">
+<meta property="og:image" content="http://example.com/2020/10/06/git-rebase/image-20220223195653217.png">
+<meta property="og:image" content="http://example.com/2020/10/06/git-rebase/image-20220223201716036.png">
+<meta property="og:image" content="http://example.com/2020/10/06/git-rebase/image-20220223202146101.png">
+<meta property="og:image" content="http://example.com/2020/10/06/git-rebase/image-20220223202637695.png">
+<meta property="og:image" content="http://example.com/2020/10/06/git-rebase/image-20220223203346518.png">
+<meta property="og:image" content="http://example.com/2020/10/06/git-rebase/image-20220223203422000.png">
+<meta property="og:image" content="http://example.com/2020/10/06/git-rebase/image-20220223203713858.png">
+<meta property="article:published_time" content="2020-10-06T07:13:01.000Z">
+<meta property="article:modified_time" content="2022-02-24T02:57:29.973Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2020/10/06/git-rebase/image-20220223195135831.png">
   
-  <title>Git Start - Hexo</title>
+  <title>Git rebase - Hexo</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -187,7 +196,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Git Start">
+            <span class="h2" id="subtitle" title="Git rebase">
               
             </span>
 
@@ -197,8 +206,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-10-02 15:13" pubdate>
-        2020年10月2日 下午
+      <time datetime="2020-10-06 15:13" pubdate>
+        2020年10月6日 下午
       </time>
     </span>
   
@@ -208,7 +217,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.2k 字
+      2.4k 字
     </span>
   
 
@@ -217,7 +226,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4 分钟
+      7 分钟
     </span>
   
 
@@ -246,31 +255,66 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Git Start</h1>
+            <h1 style="display: none">Git rebase</h1>
             
             <div class="markdown-body">
-              <p>此篇介绍Git基础操作。</p>
+              <p>此篇介绍Git rebase等操作。</p>
 <span id="more"></span>
 
-<h2 id="quick-start"><a href="#quick-start" class="headerlink" title="quick start"></a>quick start</h2><h3 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git <span class="hljs-built_in">clone</span> git@github.com:cutegentle/git-exercise.git<br>$ git-exercise git:(main) la<br>total 40<br>drwxr-xr-x  12 w  staff   384B  9 21 17:43 .git<br>-rw-r--r--   1 w  staff   1.4K  9 21 17:43 .gitignore<br>-rw-r--r--   1 w  staff    11K  9 21 17:43 LICENSE<br>-rw-r--r--   1 w  staff    28B  9 21 17:43 README.md<br>$ <br>$ git-exercise git:(main) ls<br></code></pre></td></tr></table></figure>
+<h2 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h2><h3 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h3><h4 id="1-git-commit-–amend"><a href="#1-git-commit-–amend" class="headerlink" title="1. git commit –amend"></a>1. git commit –amend</h4><img src="/2020/10/06/git-rebase/image-20220223195135831.png" srcset="/img/loading.gif" lazyload alt="image-20220223195135831" style="zoom:70%;">
 
-<p>讲下工作区等概念，以及目录文件的一些用处。可结合sourcetree界面。</p>
-<h3 id="git-log"><a href="#git-log" class="headerlink" title="git log"></a>git log</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) git <span class="hljs-built_in">log</span><br>commit 128b182c3a76421ee5c321ad230579c53e9ec488 (HEAD -&gt; main, origin/main, origin/HEAD)<br>$ q //quit<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">➜  git-exercise git:(main) ✗ git add .<br>➜  git-exercise git:(main) ✗ git commit -m <span class="hljs-string">&quot;开始rebase，先测commit撤销&quot;</span><br>[main b00c892] 开始rebase，先测commit撤销<br> 1 file changed, 2 insertions(+)<br> create mode 100644 rebase1.txt<br>➜  git-exercise git:(main) git <span class="hljs-built_in">log</span><br>➜  git-exercise git:(main) git <span class="hljs-built_in">log</span>             <br>➜  git-exercise git:(main) ✗ git add rebase1.txt <br>➜  git-exercise git:(main) ✗ git commit --amend<br>[main 833283c] 测试commit --amend 是否能用<br> 1 file changed, 2 insertions(+)<br> create mode 100644 rebase1.txt<br></code></pre></td></tr></table></figure>
 
-<p>引用，commit等相关知识。</p>
-<h3 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) git status<br>On branch main<br>Your branch is up to date with <span class="hljs-string">&#x27;origin/main&#x27;</span>.<br><br>Untracked files:<br>  (use <span class="hljs-string">&quot;git add &lt;file&gt;...&quot;</span> to include <span class="hljs-keyword">in</span> what will be committed)<br>	master1.txt<br><br>nothing added to commit but untracked files present (use <span class="hljs-string">&quot;git add&quot;</span> to track)<br><br></code></pre></td></tr></table></figure>
+<p>先提交一次在gitexercise上。</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">原来文件内容：<br>先测试<span class="hljs-keyword">commit</span>撤销开始<br>修改后：<br>先测试<span class="hljs-keyword">commit</span>撤销开始,我修改了一下错误以amend<br></code></pre></td></tr></table></figure>
 
-<h3 id="git-add-amp-commit"><a href="#git-add-amp-commit" class="headerlink" title="git add &amp; commit"></a>git add &amp; commit</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) ✗ git add .<br>$ git-exercise git:(main) ✗ git commit -m <span class="hljs-string">&quot;main第一次本地提交&quot;</span><br>$ git-exercise git:(main) git status<br>On branch main<br>Your branch is ahead of <span class="hljs-string">&#x27;origin/main&#x27;</span> by 1 commit.<br>  (use <span class="hljs-string">&quot;git push&quot;</span> to publish your <span class="hljs-built_in">local</span> commits)<br><br>nothing to commit, working tree clean<br></code></pre></td></tr></table></figure>
+<img src="/2020/10/06/git-rebase/image-20220223195653217.png" srcset="/img/loading.gif" lazyload alt="image-20220223195653217" style="zoom:70%;">
 
-<h3 id="git-push"><a href="#git-push" class="headerlink" title="git push"></a>git push</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) git push origin<br>$ git-exercise git:(main) git push origin main<br></code></pre></td></tr></table></figure>
+<p>显而易见：</p>
+<p>用 <code>commit --amend</code> 可以修复当前提交的错误。使用方式：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">git <span class="hljs-keyword">commit</span> <span class="hljs-comment">--amend</span><br></code></pre></td></tr></table></figure>
 
-<h3 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ git-exercise git:(main) git pull origin main <br></code></pre></td></tr></table></figure>
+<p>需要注意的有一点：<code>commit --amend</code> 并不是直接修改原 <code>commit</code> 的内容，而是生成一条新的 <code>commit</code>。</p>
+<h3 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a>rebase</h3><p>前置条件。</p>
+<img src="/2020/10/06/git-rebase/image-20220223201716036.png" srcset="/img/loading.gif" lazyload alt="image-20220223201716036" style="zoom:80%;">
 
+<p>在test-rebase分支上</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git rebase main<br></code></pre></td></tr></table></figure>
 
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">➜  git-exercise git:(test-rebase) git rebase main<br>Auto-merging rebase1.txt<br>CONFLICT (content): Merge conflict <span class="hljs-keyword">in</span> rebase1.txt<br>error: could not apply afeeb31... rebase分支提交<br>Resolve all conflicts manually, mark them as resolved with<br><span class="hljs-string">&quot;git add/rm &lt;conflicted_files&gt;&quot;</span>, <span class="hljs-keyword">then</span> run <span class="hljs-string">&quot;git rebase --continue&quot;</span>.<br>You can instead skip this commit: run <span class="hljs-string">&quot;git rebase --skip&quot;</span>.<br>To abort and get back to the state before <span class="hljs-string">&quot;git rebase&quot;</span>, run <span class="hljs-string">&quot;git rebase --abort&quot;</span>.<br>Could not apply afeeb31... rebase分支提交<br><span class="hljs-comment"># nice</span><br></code></pre></td></tr></table></figure>
 
-<p>值得一提的是要注意HEAD，branch的指向。</p>
-<p><strong>以上为git最为基本的命令。需烂熟于心。</strong></p>
+<img src="/2020/10/06/git-rebase/image-20220223202146101.png" srcset="/img/loading.gif" lazyload alt="image-20220223202146101" style="zoom:50%;">
 
+<p>打开文件可以看到冲突的地方已经标出来了。解决冲突之后。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">➜  git-exercise git:(cb9e2c9) ✗ git add rebase1.txt <br>➜  git-exercise git:(cb9e2c9) ✗ git rebase --<span class="hljs-built_in">continue</span><br>[detached HEAD 5ce1e26] rebase分支提交<br> 2 files changed, 2 insertions(+), 2 deletions(-)<br> create mode 100644 rebase2.txt<br>Successfully rebased and updated refs/heads/test-rebase.<br></code></pre></td></tr></table></figure>
+
+<img src="/2020/10/06/git-rebase/image-20220223202637695.png" srcset="/img/loading.gif" lazyload alt="image-20220223202637695" style="zoom:80%;">
+
+<p>test-rebase分支直接 以 main分支最新提交为起点 再把自己分支上的提交依次排在main起点开始。</p>
+<p>通过这样的方式，就让本来分叉了的提交历史重新回到了一条线。这种「重新设置基础点」的操作，就是 <code>rebase</code> 的含义。</p>
+<p>另外，在 <code>rebase</code> 之后，记得切回 <code>master</code> 再 <code>merge</code> 一下，把 <code>master</code> 移到最新的 <code>commit</code>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">git checkout master<br>git merge branch1<br><span class="hljs-comment"># 这里的merge实际上 是 fast-forward</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">➜  git-exercise git:(test-rebase) git checkout main<br>Switched to branch <span class="hljs-string">&#x27;main&#x27;</span><br>Your branch is ahead of <span class="hljs-string">&#x27;origin/main&#x27;</span> by 3 commits.<br>  (use <span class="hljs-string">&quot;git push&quot;</span> to publish your <span class="hljs-built_in">local</span> commits)<br>➜  git-exercise git:(main) git merge test-rebase <br>Updating cb9e2c9..5ce1e26<br>Fast-forward<br> rebase1.txt | 3 +--<br> rebase2.txt | 1 +<br> 2 files changed, 2 insertions(+), 2 deletions(-)<br> create mode 100644 rebase2.txt<br></code></pre></td></tr></table></figure>
+
+<p>其实很好记。对于一般情况，总会操作master。那么</p>
+<ol>
+<li>merge实际上都要从master出发使用，<code>git merge other-branch</code></li>
+<li>rebase实际上都是：<code>git rebase master</code>意思就是以master为基点，变基。</li>
+<li>注意的是操作master的rebase，最后要在master上merge一下以达到最新。</li>
+</ol>
+<img src="/2020/10/06/git-rebase/image-20220223203346518.png" srcset="/img/loading.gif" lazyload alt="image-20220223203346518" style="zoom:80%;">
+
+<img src="/2020/10/06/git-rebase/image-20220223203422000.png" srcset="/img/loading.gif" lazyload alt="image-20220223203422000" style="zoom:80%;">
+
+<p>如果是merge而不是rebase，从<code>开始测试rebase（包括</code>这个commit开始一共4个因为会新产生一个，并产生分叉。</p>
+<p>对比rebase和merge。</p>
+<p><img src="/2020/10/06/git-rebase/image-20220223203713858.png" srcset="/img/loading.gif" lazyload alt="image-20220223203713858"></p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p><code>rebase</code> 指令，它可以改变 <code>commit</code> 序列的基础点。它的使用方式很简单：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">git</span> rebase 目标基础点<br></code></pre></td></tr></table></figure>
+
+<p>需要说明的是，<code>rebase</code> 是站在需要被 <code>rebase</code> 的 <code>commit</code> 上进行操作，这点和 <code>merge</code> 是不同的。</p>
+<h3 id="下一篇：处理一些提交上的错误大全"><a href="#下一篇：处理一些提交上的错误大全" class="headerlink" title="下一篇：处理一些提交上的错误大全"></a>下一篇：处理一些提交上的错误大全</h3>
             </div>
             <hr>
             <div>
@@ -330,9 +374,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/10/03/git-branch/">
+                      <a href="/2020/10/07/git%E5%A4%84%E7%90%86%E6%8F%90%E4%BA%A4%E9%94%99%E8%AF%AF%E5%A4%A7%E5%85%A8/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Git Branch</span>
+                        <span class="hidden-mobile">Git Handling errors</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -340,8 +384,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/10/01/whatIsGit/">
-                        <span class="hidden-mobile">What is Git ？</span>
+                      <a href="/2020/10/05/git%E6%8C%87%E4%BB%A4/">
+                        <span class="hidden-mobile">Git 常用指令大全</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
